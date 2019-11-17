@@ -34,14 +34,14 @@ $\color{lightgray} R_u = I + \begin{bmatrix}0&-d&c\\d&0&-b\\-c&b&0\end{bmatrix}\
 
 ```csharp
 // temp
-var tb = b * 2; var tc = c * 2; var td = d * 2;
-var bb = tb * b; var cc = tc * c; var dd = td * d;
-var bc = tb * c; var bd = tb * d; var cd = tc * d;
-var ab = tb * a; var ac = tc * a; var ad = td * a;
+var tb = b * 2; var tc = c * 2; var td = d * 2; // 
+var ab = tb * a; var ac = tc * a; var ad = td * a; // cross
+var bb = tb * b; var cc = tc * c; var dd = td * d; // dot
+var bc = tb * c; var bd = tb * d; var cd = tc * d; // dot
 // matrix elements
-var xx = 1 - cc - dd; var xy = bc - ad; var xz = bd + ac;
-var yx = bc + ad; var yy = 1 - bb - dd; var yz = cd - ab;
-var zx = bd - ac; var zy = cd + ab; var zz = 1 - bb - cc;
+var xx = 1 - cc - dd; var xy = bc - ad; var xz = bd + ac; // x' row
+var yx = bc + ad; var yy = 1 - bb - dd; var yz = cd - ab; // y' row
+var zx = bd - ac; var zy = cd + ab; var zz = 1 - bb - cc; // z' row
 // 12 multiplications
 // 12 additions/subtractions
 ```
@@ -49,6 +49,15 @@ var zx = bd - ac; var zy = cd + ab; var zz = 1 - bb - cc;
 ##### quaternion to rotate vector
 
 ```csharp
-
+// temp
+var tx = c * z - d * y + x * a;
+var ty = d * x - b * z + y * a;
+var tz = b * y - c * x + z * a;
+// vector
+var _x = 2 * (c * tz - d * ty) + x; // x'
+var _y = 2 * (d * tx - b * tz) + y; // y'
+var _z = 2 * (b * ty - c * tx) + z; // z'
+//
+//
 ```
 
