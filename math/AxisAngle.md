@@ -16,7 +16,7 @@ $\color{lightgray} R_u = I\cos\theta + \begin{bmatrix}bb&bc&bd\\bc&cc&cd\\bd&cd&
 
 ##### TODO
 
-$ \vec{v'} = \vec{u}(\vec{u}\cdot\vec{v}) + (\vec{v}-\vec{u}(\vec{u}\cdot\vec{v}))(\cos\theta) + (\vec{u}\times\vec{v})\sin\theta $
+$\color{violet} \vec{v'} = \vec{u}({u}\cdot{v}) + (\vec{v}-\vec{u}({u}\cdot{v}))(\cos\theta) + (\vec{u}\times\vec{v})\sin\theta $
 
 15 mul, 14 add/sub, 2 fun calls
 
@@ -31,14 +31,14 @@ $\color{lightgray} R_u = \begin{bmatrix}bb&bc&bd\\bc&cc&cd\\bd&cd&dd\end{bmatrix
 ```csharp
 // temp
 var sin = Sin(angle); var cos = Cos(angle); var ver = 1 - cos;
-var ab = b * sin; var ac = c * sin; var ad = d * sin;
-var tb = b * ver; var tc = c * ver; var td = d * ver;
-var bb = b * tb; var cc = c * tc; var dd = d * td;
-var bc = b * tc; var bd = b * td; var cd = c * td;
+var ab = b * sin; var ac = c * sin; var ad = d * sin; // cross
+var tb = b * ver; var tc = c * ver; var td = d * ver; // dot
+var bb = b * tb; var cc = c * tc; var dd = d * td; // dot
+var bc = b * tc; var bd = b * td; var cd = c * td; // dot
 // matrix elements
-var xx = bb + cos; var xy = bc - ad; var xz = bd + ac;
-var yx = bc + ad; var yy = cc + cos; var yz = cd - ab;
-var zx = bd - ac; var zy = cd + ab; var zz = dd + cos;
+var xx = bb + cos; var xy = bc - ad; var xz = bd + ac; // x' row
+var yx = bc + ad; var yy = cc + cos; var yz = cd - ab; // y' row
+var zx = bd - ac; var zy = cd + ab; var zz = dd + cos; // z' row
 // 12 multiplications
 // 10 additions/subtractions
 // 2 function calls
@@ -49,11 +49,11 @@ var zx = bd - ac; var zy = cd + ab; var zz = dd + cos;
 ```csharp
 // temp
 var sin = Sin(angle); var cos = Cos(angle); var ver = 1 - cos;
-var dotver = (b * x + c * y + d * z) * ver;
+var dot_ver = (b * x + c * y + d * z) * ver;
 // vector
-var _x = x * cos + b * dotver + (c * z - d * y) * sin;
-var _y = y * cos + c * dotver + (d * x - b * z) * sin;
-var _z = z * cos + d * dotver + (b * y - c * x) * sin;
+var _x = x * cos + b * dot_ver + (c * z - d * y) * sin; // x'
+var _y = y * cos + c * dot_ver + (d * x - b * z) * sin; // y'
+var _z = z * cos + d * dot_ver + (b * y - c * x) * sin; // z'
 // 19 multiplications
 // 12 additions/subtractions
 // 2 function calls
