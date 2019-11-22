@@ -2,7 +2,7 @@
 
 $ R_u = \begin{bmatrix} bb(1-\cos\theta)+(\cos\theta) & bc(1-\cos\theta)-d\sin\theta & bd(1-\cos\theta)+c\sin\theta \\ bc(1-\cos\theta)+d\sin\theta & cc(1-\cos\theta)+(\cos\theta) & cd(1-\cos\theta)-b\sin\theta \\ bd(1-\cos\theta)-c\sin\theta & cd(1-\cos\theta)+b\sin\theta & dd(1-\cos\theta)+(\cos\theta) \end{bmatrix} $
 
-[Quaternion](AngleAxisQuaternion)
+[Quaternion](AngleAxisQuaternion.md)
 
 ##### TODO
 
