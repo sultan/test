@@ -2,6 +2,8 @@
 
 $ R_q = \begin{bmatrix} 2bb+2aa-1 & 2bc-2ad & 2bd+2ac \\ 2bc+2ad & 2cc+2aa-1 & 2cd-2ab \\ 2bd-2ac & 2cd+2ab & 2dd+2aa-1 \end{bmatrix} $
 
+[AxisAngle](AxisAngle)
+
 ##### TODO
 
 $ \vec{v'} = q\vec{v}q^{-1} = (a+\vec{u}) \ \vec{v} \ (a-\vec{u}) = 2({u}\cdot{v})\vec{u} + 2a(\vec{u}\times\vec{v}) + (2a^2-1)\vec{v} $
