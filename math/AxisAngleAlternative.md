@@ -8,7 +8,7 @@ $ R_u = \overbrace{\underbrace{\begin{bmatrix}1&0&0\\0&1&0\\0&0&1\end{bmatrix}}_
 
 $ R_u = I + ([u]_{\times})^2(1-\cos\theta) + [u]_{\times}\sin\theta $
 
-$ \vec{v'} = \vec{v} + (\vec{u}\times(\vec{u}\times\vec{v}))(1-\cos\theta) + (\vec{u}\times\vec{v})\sin\theta $
+$\color{red} \vec{v'} = \vec{v} + (\vec{u}\times(\vec{u}\times\vec{v}))(1-\cos\theta) + (\vec{u}\times\vec{v})\sin\theta $
 
 ##### TODO
 

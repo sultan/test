@@ -18,15 +18,15 @@ $ \vec{v'} = \vec{v}\cos\theta + \vec{u}({u}\cdot{v})(1-\cos\theta) + (\vec{u}\t
 
 ##### TODO
 
-$\color{red} \vec{v'} = \vec{u}({u}\cdot{v}) + (\vec{v}-\vec{u}({u}\cdot{v}))(\cos\theta) + (\vec{u}\times\vec{v})\sin\theta $
-
-15 mul, 14 add/sub, 2 fun calls
-
 $ R_u = \overbrace{\underbrace{\begin{bmatrix}bb&bc&bd\\bc&cc&cd\\bd&cd&dd\end{bmatrix}}_{ \textstyle ({u}\otimes{u})}}^{\textstyle 1} + \overbrace{\underbrace{\begin{bmatrix}1&0&0\\0&1&0\\0&0&1\end{bmatrix}}_{\textstyle I} - \underbrace{\begin{bmatrix}bb&bc&bd\\bc&cc&cd\\bd&cd&dd\end{bmatrix}}_{ \textstyle ({u}\otimes{u})}}^{\textstyle (\cos\theta)} + \overbrace{\underbrace{\begin{bmatrix}0&-d&c\\d&0&-b\\-c&b&0\end{bmatrix}}_{\textstyle [u]_{\times}}}^{\textstyle \sin\theta} $
 
 $ R_u = (u\otimes{u}) + (I-(u\otimes{u}))(\cos\theta) + [u]_{\times}\sin\theta $
 
 12 mul, 18 add/sub, fun calls
+
+$\color{red} \vec{v'} = \vec{u}({u}\cdot{v}) + (\vec{v}-\vec{u}({u}\cdot{v}))(\cos\theta) + (\vec{u}\times\vec{v})\sin\theta $
+
+15 mul, 14 add/sub, 2 fun calls
 
 ##### axis angle to rotation matrix
 
