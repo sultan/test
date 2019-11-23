@@ -2,29 +2,29 @@
 
 $ R_u = \begin{bmatrix} bb(1-\cos\theta)+(\cos\theta) & bc(1-\cos\theta)-d\sin\theta & bd(1-\cos\theta)+c\sin\theta \\ bc(1-\cos\theta)+d\sin\theta & cc(1-\cos\theta)+(\cos\theta) & cd(1-\cos\theta)-b\sin\theta \\ bd(1-\cos\theta)-c\sin\theta & cd(1-\cos\theta)+b\sin\theta & dd(1-\cos\theta)+(\cos\theta) \end{bmatrix} $
 
-[Quaternion](AngleAxisQuaternion.md)
+[Switch to Quaternion instead](AngleAxisQuaternion.md)
 
 ##### TODO
+
+$ R_u = \overbrace{\underbrace{\begin{bmatrix}bb&bc&bd\\bc&cc&cd\\bd&cd&dd\end{bmatrix}}_{ \textstyle ({u}\otimes{u})}}^{\textstyle (1-\cos\theta)} + \overbrace{\underbrace{\begin{bmatrix}0&-d&c\\d&0&-b\\-c&b&0\end{bmatrix}}_{\textstyle [u]_{\times}}}^{\textstyle \sin\theta} + \overbrace{\underbrace{\begin{bmatrix}1&0&0\\0&1&0\\0&0&1\end{bmatrix}}_{\textstyle I}}^{\textstyle \cos\theta} $
+
+$ R_u = I\cos\theta + (u\otimes{u})(1-\cos\theta) + [u]_{\times}\sin\theta $
+
+12 mul, 10 add/sub, 2 fun calls
 
 $ \vec{v'} = \vec{v}\cos\theta + \vec{u}({u}\cdot{v})(1-\cos\theta) + (\vec{u}\times\vec{v})\sin\theta $
 
 19 mul, 12 add/sub, 2 fun calls
 
-$\color{lightgray} R_u = I\cos\theta + (u\otimes{u})(1-\cos\theta) + [u]_{\times}\sin\theta $
-
-$\color{lightgray} R_u = I\cos\theta + \begin{bmatrix}bb&bc&bd\\bc&cc&cd\\bd&cd&dd\end{bmatrix} (1-\cos\theta) + \begin{bmatrix}0&-d&c\\d&0&-b\\-c&b&0\end{bmatrix}\sin\theta $
-
-12 mul, 10 add/sub, 2 fun calls
-
 ##### TODO
 
-$\color{violet} \vec{v'} = \vec{u}({u}\cdot{v}) + (\vec{v}-\vec{u}({u}\cdot{v}))(\cos\theta) + (\vec{u}\times\vec{v})\sin\theta $
+$\color{red} \vec{v'} = \vec{u}({u}\cdot{v}) + (\vec{v}-\vec{u}({u}\cdot{v}))(\cos\theta) + (\vec{u}\times\vec{v})\sin\theta $
 
 15 mul, 14 add/sub, 2 fun calls
 
-$\color{lightgray} R_u = (u\otimes{u}) + (I-(u\otimes{u}))(\cos\theta) + [u]_{\times}\sin\theta $
+$ R_u = \overbrace{\underbrace{\begin{bmatrix}bb&bc&bd\\bc&cc&cd\\bd&cd&dd\end{bmatrix}}_{ \textstyle ({u}\otimes{u})}}^{\textstyle 1} + \overbrace{\underbrace{\begin{bmatrix}1&0&0\\0&1&0\\0&0&1\end{bmatrix}}_{\textstyle I} - \underbrace{\begin{bmatrix}bb&bc&bd\\bc&cc&cd\\bd&cd&dd\end{bmatrix}}_{ \textstyle ({u}\otimes{u})}}^{\textstyle (\cos\theta)} + \overbrace{\underbrace{\begin{bmatrix}0&-d&c\\d&0&-b\\-c&b&0\end{bmatrix}}_{\textstyle [u]_{\times}}}^{\textstyle \sin\theta} $
 
-$\color{lightgray} R_u = \begin{bmatrix}bb&bc&bd\\bc&cc&cd\\bd&cd&dd\end{bmatrix} + \bigg(I-\begin{bmatrix}bb&bc&bd\\bc&cc&cd\\bd&cd&dd\end{bmatrix}\bigg)(\cos\theta) + \begin{bmatrix}0&-d&c\\d&0&-b\\-c&b&0\end{bmatrix}\sin\theta $
+$ R_u = (u\otimes{u}) + (I-(u\otimes{u}))(\cos\theta) + [u]_{\times}\sin\theta $
 
 12 mul, 18 add/sub, fun calls
 
