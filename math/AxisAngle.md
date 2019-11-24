@@ -6,27 +6,15 @@ $ R_u = \begin{bmatrix} bb(1-\cos\theta)+(\cos\theta) & bc(1-\cos\theta)-d\sin\t
 
 ##### TODO
 
-$ R_u = \overbrace{\underbrace{\begin{bmatrix}bb&bc&bd\\bc&cc&cd\\bd&cd&dd\end{bmatrix}}_{ \textstyle ({u}\otimes{u})}}^{\textstyle (1-\cos\theta)} + \overbrace{\underbrace{\begin{bmatrix}0&-d&c\\d&0&-b\\-c&b&0\end{bmatrix}}_{\textstyle [u]_{\times}}}^{\textstyle \sin\theta} + \overbrace{\underbrace{\begin{bmatrix}1&0&0\\0&1&0\\0&0&1\end{bmatrix}}_{\textstyle I}}^{\textstyle \cos\theta} $
+$\color{red} R_u = \overbrace{\underbrace{\begin{bmatrix}1&0&0\\0&1&0\\0&0&1\end{bmatrix}}_{\textstyle I}}^{\textstyle \cos\theta} + \overbrace{\underbrace{\begin{bmatrix}bb&bc&bd\\bc&cc&cd\\bd&cd&dd\end{bmatrix}}_{ \textstyle ({u}\otimes{u})}}^{\textstyle (1-\cos\theta)} + \overbrace{\underbrace{\begin{bmatrix}0&-d&c\\d&0&-b\\-c&b&0\end{bmatrix}}_{\textstyle [u]_{\times}}}^{\textstyle \sin\theta} $
 
-$ R_u = I\cos\theta + (u\otimes{u})(1-\cos\theta) + [u]_{\times}\sin\theta $
+$\color{red} R_u = I\cos\theta + (u\otimes{u})(1-\cos\theta) + [u]_{\times}\sin\theta $
 
 12 mul, 10 add/sub, 2 fun calls
 
 $ \vec{v'} = \vec{v}\cos\theta + \vec{u}({u}\cdot{v})(1-\cos\theta) + (\vec{u}\times\vec{v})\sin\theta $
 
 19 mul, 12 add/sub, 2 fun calls
-
-##### TODO
-
-$ R_u = \overbrace{\underbrace{\begin{bmatrix}bb&bc&bd\\bc&cc&cd\\bd&cd&dd\end{bmatrix}}_{ \textstyle ({u}\otimes{u})}}^{\textstyle 1} + \overbrace{\underbrace{\begin{bmatrix}1&0&0\\0&1&0\\0&0&1\end{bmatrix}}_{\textstyle I} - \underbrace{\begin{bmatrix}bb&bc&bd\\bc&cc&cd\\bd&cd&dd\end{bmatrix}}_{ \textstyle ({u}\otimes{u})}}^{\textstyle (\cos\theta)} + \overbrace{\underbrace{\begin{bmatrix}0&-d&c\\d&0&-b\\-c&b&0\end{bmatrix}}_{\textstyle [u]_{\times}}}^{\textstyle \sin\theta} $
-
-$ R_u = (u\otimes{u}) + (I-(u\otimes{u}))(\cos\theta) + [u]_{\times}\sin\theta $
-
-12 mul, 18 add/sub, fun calls
-
-$\color{red} \vec{v'} = \vec{u}({u}\cdot{v}) + (\vec{v}-\vec{u}({u}\cdot{v}))(\cos\theta) + (\vec{u}\times\vec{v})\sin\theta $
-
-15 mul, 14 add/sub, 2 fun calls
 
 ##### axis angle to rotation matrix
 
@@ -60,4 +48,16 @@ var _z = z * cos + d * dot_ver + (b * y - c * x) * sin; // z'
 // 12 additions/subtractions
 // 2 function calls
 ```
+
+##### TODO
+
+$ R_u = \overbrace{\underbrace{\begin{bmatrix}bb&bc&bd\\bc&cc&cd\\bd&cd&dd\end{bmatrix}}_{ \textstyle ({u}\otimes{u})}}^{\textstyle 1} + \overbrace{\underbrace{\begin{bmatrix}1&0&0\\0&1&0\\0&0&1\end{bmatrix}}_{\textstyle I} - \underbrace{\begin{bmatrix}bb&bc&bd\\bc&cc&cd\\bd&cd&dd\end{bmatrix}}_{ \textstyle ({u}\otimes{u})}}^{\textstyle (\cos\theta)} + \overbrace{\underbrace{\begin{bmatrix}0&-d&c\\d&0&-b\\-c&b&0\end{bmatrix}}_{\textstyle [u]_{\times}}}^{\textstyle \sin\theta} $
+
+$ R_u = (u\otimes{u}) + (I-(u\otimes{u}))(\cos\theta) + [u]_{\times}\sin\theta $
+
+12 mul, 18 add/sub, fun calls
+
+$\color{red} \vec{v'} = \vec{u}({u}\cdot{v}) + (\vec{v}-\vec{u}({u}\cdot{v}))(\cos\theta) + (\vec{u}\times\vec{v})\sin\theta $
+
+15 mul, 14 add/sub, 2 fun calls
 
