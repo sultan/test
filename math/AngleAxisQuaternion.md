@@ -16,7 +16,7 @@ $ \vec{v'} = q\vec{v}q^{-1} = (a+\vec{u}) \ \vec{v} \ (a-\vec{u}) = (2a^2-1)\vec
 
 21/12 or 19/14
 
-##### quaternion to rotation matrix TODO
+##### quaternion to rotation matrix
 
 ```csharp
 // temp
