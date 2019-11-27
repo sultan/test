@@ -49,6 +49,8 @@ $ \vec{v'} = q\vec{v}q^{-1} = (a+\vec{u}) \ \vec{v} \ (a-\vec{u}) = 2(({u}\cdot{
 
 ##### TODO
 
+$ R_q = \overbrace{\underbrace{\begin{bmatrix}bb&bc&bd\\bc&cc&cd\\bd&cd&dd\end{bmatrix}}_{\textstyle ({u}\otimes{u})} + \overbrace{\underbrace{\begin{bmatrix}0&-d&c\\d&0&-b\\-c&b&0\end{bmatrix}}_{\textstyle [u]_{\times}} + \overbrace{\underbrace{\begin{bmatrix}1&0&0\\0&1&0\\0&0&1\end{bmatrix}}_{\textstyle I}}^{\textstyle a-\frac{1}{2}}}^{\textstyle a}}^{\textstyle 2} $
+
 $ \vec{v'} = q\vec{v}q^{-1} = (a+\vec{u}) \ \vec{v} \ (a-\vec{u}) = 2(({u}\cdot{v})\vec{u} + a(\vec{u}\times\vec{v}) + (a^2-\frac{1}{2})\vec{v}) $
 
 $ R_q = 2(({u}\otimes{u}) +a[u]_{\times} +(a^2-\frac{1}{2})I) $
