@@ -72,3 +72,19 @@ var _y = y + ty; // y'
 var _z = z + tz; // z'
 ```
 
+```csharp
+var sin = Sin(angle); var cos = Cos(angle); var ver = 1 - cos;
+var tx = x;
+var ty = y;
+var tz = z;
+tx = (c * tz - td * y) * ver + tx * sin;
+ty = (d * tx - tb * z) * ver + ty * sin;
+tz = (b * ty - tc * x) * ver + tz * sin;
+tx = (c * tz - d * ty); // cross
+ty = (d * tx - b * tz); // cross
+tz = (b * ty - c * tx); // cross
+var _x = x + tx; // x'
+var _y = y + ty; // y'
+var _z = z + tz; // z'
+```
+
