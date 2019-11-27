@@ -35,9 +35,9 @@ var zx = bd - ac; var zy = cd + ab; var zz = dd + cos; // z' row
 
 ##### quaternion to rotate vector
 
-```csharp
+not efficient in this version
 
-```
+see a more efficient version for Quaternion [here](Quaternion.md)
 
 ##### TODO
 

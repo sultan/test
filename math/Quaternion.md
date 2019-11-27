@@ -44,9 +44,9 @@ var tx = (c * z - d * y) * 2; // cross
 var ty = (d * x - b * z) * 2; // cross
 var tz = (b * y - c * x) * 2; // cross
 // vector
-var _x = x + c * tz - d * ty + a * tx; // x'
-var _y = y + d * tx - b * tz + a * ty; // y'
-var _z = z + b * ty - c * tx + a * tz; // z'
+var _x = x + (c * tz - d * ty) + a * tx; // x'
+var _y = y + (d * tx - b * tz) + a * ty; // y'
+var _z = z + (b * ty - c * tx) + a * tz; // z'
 // 18 multiplications
 // 12 additions/subtractions
 ```
@@ -55,9 +55,9 @@ var _z = z + b * ty - c * tx + a * tz; // z'
 
 ```csharp
 // temp
-var tx = c * z - d * y + a * x;
-var ty = d * x - b * z + a * y;
-var tz = b * y - c * x + a * z;
+var tx = (c * z - d * y) + a * x;
+var ty = (d * x - b * z) + a * y;
+var tz = (b * y - c * x) + a * z;
 // vector
 var _x = x + (c * tz - d * ty) * 2; // x'
 var _y = y + (d * tx - b * tz) * 2; // y'
@@ -69,30 +69,36 @@ var _z = z + (b * ty - c * tx) * 2; // z'
 ##### TODO
 
 ```csharp
+// temp
 var tx = x;
 var ty = y;
 var tz = z;
-tx = (c * tz - d * ty) * 2; // cross
-ty = (d * tx - b * tz) * 2; // cross
-tz = (b * ty - c * tx) * 2; // cross
+tx = (c * tz - d * ty) * 2;
+ty = (d * tx - b * tz) * 2;
+tz = (b * ty - c * tx) * 2;
 tx = (c * tz - d * ty) + a * tx;
 ty = (d * tx - b * tz) + a * ty;
 tz = (b * ty - c * tx) + a * tz;
+// vector
 var _x = x + tx; // x'
 var _y = y + ty; // y'
 var _z = z + tz; // z'
 ```
 
+TODO
+
 ```csharp
+// temp
 var tx = x;
 var ty = y;
 var tz = z;
 tx = (c * tz - d * ty) + a * tx;
 ty = (d * tx - b * tz) + a * ty;
 tz = (b * ty - c * tx) + a * tz;
-tx = (c * tz - d * ty) * 2; // cross
-ty = (d * tx - b * tz) * 2; // cross
-tz = (b * ty - c * tx) * 2; // cross
+tx = (c * tz - d * ty) * 2;
+ty = (d * tx - b * tz) * 2;
+tz = (b * ty - c * tx) * 2;
+// vector
 var _x = x + tx; // x'
 var _y = y + ty; // y'
 var _z = z + tz; // z'

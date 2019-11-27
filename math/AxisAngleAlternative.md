@@ -20,6 +20,12 @@ $ \vec{v'} = \vec{v} + \vec{u}\times((\vec{u}\times\vec{v})(1-\cos\theta) + \vec
 
 18/13/2
 
+##### axis angle to rotation matrix
+
+not efficient in this version
+
+see a more efficient version for Axis Angle [here](AxisAngle.md)
+
 ##### axis angle to rotate vector
 
 ```csharp
@@ -57,22 +63,27 @@ var _z = z + (b * ty - c * tx); // z'
 ##### TODO
 
 ```csharp
+// temp
 var sin = Sin(angle); var cos = Cos(angle); var ver = 1 - cos;
 var tx = x;
 var ty = y;
 var tz = z;
-tx = (c * tz - d * ty); // cross
-ty = (d * tx - b * tz); // cross
-tz = (b * ty - c * tx); // cross
+tx = (c * tz - d * ty);
+ty = (d * tx - b * tz);
+tz = (b * ty - c * tx);
 tx = (c * tz - d * ty) * ver + tx * sin;
 ty = (d * tx - b * tz) * ver + ty * sin;
 tz = (b * ty - c * tx) * ver + tz * sin;
+// vector
 var _x = x + tx; // x'
 var _y = y + ty; // y'
 var _z = z + tz; // z'
 ```
 
+TODO
+
 ```csharp
+// temp
 var sin = Sin(angle); var cos = Cos(angle); var ver = 1 - cos;
 var tx = x;
 var ty = y;
@@ -80,9 +91,10 @@ var tz = z;
 tx = (c * tz - d * ty) * ver + tx * sin;
 ty = (d * tx - b * tz) * ver + ty * sin;
 tz = (b * ty - c * tx) * ver + tz * sin;
-tx = (c * tz - d * ty); // cross
-ty = (d * tx - b * tz); // cross
-tz = (b * ty - c * tx); // cross
+tx = (c * tz - d * ty);
+ty = (d * tx - b * tz);
+tz = (b * ty - c * tx);
+// vector
 var _x = x + tx; // x'
 var _y = y + ty; // y'
 var _z = z + tz; // z'
