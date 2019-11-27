@@ -47,8 +47,6 @@ $ R_q = 2(({u}\otimes{u})+a(aI+[u]_{\times}))-I $
 
 $ \vec{v'} = q\vec{v}q^{-1} = (a+\vec{u}) \ \vec{v} \ (a-\vec{u}) = 2(({u}\cdot{v})\vec{u} + a(a\vec{v}+\vec{u}\times\vec{v})) - \vec{v} $
 
-20/14 or 18/16
-
 ##### TODO
 
 $ \vec{v'} = q\vec{v}q^{-1} = (a+\vec{u}) \ \vec{v} \ (a-\vec{u}) = 2(({u}\cdot{v})\vec{u} + a(\vec{u}\times\vec{v}) + (a^2-\frac{1}{2})\vec{v}) $

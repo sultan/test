@@ -55,9 +55,7 @@ $ R_u = \overbrace{\underbrace{\begin{bmatrix}bb&bc&bd\\bc&cc&cd\\bd&cd&dd\end{b
 
 $ R_u = (u\otimes{u}) + (I-(u\otimes{u}))(\cos\theta) + [u]_{\times}\sin\theta $
 
-12 mul, 18 add/sub, fun calls
-
 $\color{red} \vec{v'} = \vec{u}({u}\cdot{v}) + (\vec{v}-\vec{u}({u}\cdot{v}))(\cos\theta) + (\vec{u}\times\vec{v})\sin\theta $
 
-15 mul, 14 add/sub, 2 fun calls
+18 mul, 14 add/sub, 2 fun calls
 

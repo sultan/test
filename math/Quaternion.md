@@ -12,11 +12,15 @@ $\color{red} R_q = I + 2([u]_{\times})^2 + 2a[u]_{\times} $
 
 12/12 or 9/15
 
+$ R_q = I + 2[u]_{\times}([u]_{\times} + aI) $
+
 $ \vec{v'} = q\vec{v}q^{-1} = (a+\vec{u}) \ \vec{v} \ (a-\vec{u}) = \vec{v} + 2\vec{u}\times(\vec{u}\times\vec{v}) + 2a(\vec{u}\times\vec{v}) $
 
+$ \vec{v'} = q\vec{v}q^{-1} = (a+\vec{u}) \ \vec{v} \ (a-\vec{u}) = \vec{v} + 2\vec{u}\times(\vec{u}\times\vec{v}+a\vec{v}) $
 
+18/12 or 15/15
 
-##### quaternion to rotation matrix TODO
+##### quaternion to rotation matrix
 
 ```csharp
 // temp
@@ -36,20 +40,61 @@ var zx = bd - ac; var zy = cd + ab; var zz = 1 - bb - cc; // z' row
 
 ```csharp
 // temp
-var tx = c * z - d * y + x * a;
-var ty = d * x - b * z + y * a;
-var tz = b * y - c * x + z * a;
+var tx = (c * z - d * y) * 2; // cross
+var ty = (d * x - b * z) * 2; // cross
+var tz = (b * y - c * x) * 2; // cross
 // vector
-var _x = 2 * (c * tz - d * ty) + x; // x'
-var _y = 2 * (d * tx - b * tz) + y; // y'
-var _z = 2 * (b * ty - c * tx) + z; // z'
-//
-//
+var _x = x + c * tz - d * ty + a * tx; // x'
+var _y = y + d * tx - b * tz + a * ty; // y'
+var _z = z + b * ty - c * tx + a * tz; // z'
+// 18 multiplications
+// 12 additions/subtractions
+```
+
+##### quaternion to rotate vector
+
+```csharp
+// temp
+var tx = c * z - d * y + a * x;
+var ty = d * x - b * z + a * y;
+var tz = b * y - c * x + a * z;
+// vector
+var _x = x + (c * tz - d * ty) * 2; // x'
+var _y = y + (d * tx - b * tz) * 2; // y'
+var _z = z + (b * ty - c * tx) * 2; // z'
+// 18 multiplications
+// 12 additions/subtractions
 ```
 
 ##### TODO
 
-$ \vec{v'} = q\vec{v}q^{-1} = (a+\vec{u}) \ \vec{v} \ (a-\vec{u}) = \vec{v} + 2\vec{u}\times(\vec{u}\times\vec{v}+a\vec{v}) $
+```csharp
+var tx = x;
+var ty = y;
+var tz = z;
+tx = (c * tz - d * ty) * 2; // cross
+ty = (d * tx - b * tz) * 2; // cross
+tz = (b * ty - c * tx) * 2; // cross
+tx = (c * tz - d * ty) + a * tx;
+ty = (d * tx - b * tz) + a * ty;
+tz = (b * ty - c * tx) + a * tz;
+var _x = x + tx; // x'
+var _y = y + ty; // y'
+var _z = z + tz; // z'
+```
 
-18/12 or 15/15
+```csharp
+var tx = x;
+var ty = y;
+var tz = z;
+tx = (c * tz - d * ty) + a * tx;
+ty = (d * tx - b * tz) + a * ty;
+tz = (b * ty - c * tx) + a * tz;
+tx = (c * tz - d * ty) * 2; // cross
+ty = (d * tx - b * tz) * 2; // cross
+tz = (b * ty - c * tx) * 2; // cross
+var _x = x + tx; // x'
+var _y = y + ty; // y'
+var _z = z + tz; // z'
+```
 

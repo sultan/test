@@ -10,18 +10,65 @@ $ R_u = \overbrace{\underbrace{\begin{bmatrix}1&0&0\\0&1&0\\0&0&1\end{bmatrix}}_
 
 $ R_u = I + ([u]_{\times})^2(1-\cos\theta) + [u]_{\times}\sin\theta $
 
+9/16/2
 
+$ R_u = I + [u]_{\times}([u]_{\times}(1-\cos\theta) + I\sin\theta) $
 
 $\color{red} \vec{v'} = \vec{v} + (\vec{u}\times(\vec{u}\times\vec{v}))(1-\cos\theta) + (\vec{u}\times\vec{v})\sin\theta $
 
+$ \vec{v'} = \vec{v} + \vec{u}\times((\vec{u}\times\vec{v})(1-\cos\theta) + \vec{v}\sin\theta) $
 
+18/13/2
+
+##### axis angle to rotate vector
+
+```csharp
+// temp
+var sin = Sin(angle); var cos = Cos(angle); var ver = 1 - cos;
+var tx = (c * z - d * y); // cross
+var ty = (d * x - b * z); // cross
+var tz = (b * y - c * x); // cross
+// vector
+var _x = x + (c * tz - d * ty) * ver + tx * sin; // x'
+var _y = y + (d * tx - b * tz) * ver + ty * sin; // y'
+var _z = z + (b * ty - c * tx) * ver + tz * sin; // z'
+// 18 multiplications
+// 13 additions/subtractions
+// 2 function calls
+```
+
+##### axis angle to rotate vector
+
+```csharp
+// temp
+var sin = Sin(angle); var cos = Cos(angle); var ver = 1 - cos;
+var tx = (c * z - d * y) * ver + x * sin;
+var ty = (d * x - b * z) * ver + y * sin;
+var tz = (b * y - c * x) * ver + z * sin;
+// vector
+var _x = x + (c * tz - d * ty); // x'
+var _y = y + (d * tx - b * tz); // y'
+var _z = z + (b * ty - c * tx); // z'
+// 18 multiplications
+// 13 additions/subtractions
+// 2 function calls
+```
 
 ##### TODO
 
-$\color{lightgray} R_q = I + 2[u]_{\times}([u]_{\times} + aI) $
+```csharp
+var sin = Sin(angle); var cos = Cos(angle); var ver = 1 - cos;
+var tx = x;
+var ty = y;
+var tz = z;
+tx = (c * tz - d * ty); // cross
+ty = (d * tx - b * tz); // cross
+tz = (b * ty - c * tx); // cross
+tx = (c * tz - td * y) * ver + tx * sin;
+ty = (d * tx - tb * z) * ver + ty * sin;
+tz = (b * ty - tc * x) * ver + tz * sin;
+var _x = x + tx; // x'
+var _y = y + ty; // y'
+var _z = z + tz; // z'
+```
 
-$\color{lightgray} \vec{v'} = \vec{v} + \vec{u}\times((\vec{u}\times\vec{v})(1-\cos\theta) + \vec{v}\sin\theta) $
-
-$\color{lightgray} R_u = I + [u]_{\times}([u]_{\times}(1-\cos\theta) + I\sin\theta) $
-
-$\color{lightgray} R_u = I + \begin{bmatrix}0&-d&c\\d&0&-b\\-c&b&0\end{bmatrix}\bigg(\begin{bmatrix}0&-d&c\\d&0&-b\\-c&b&0\end{bmatrix}(1-\cos\theta) + I\sin\theta\bigg) $
