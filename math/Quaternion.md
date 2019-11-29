@@ -40,9 +40,9 @@ var zx = bd - ac; var zy = cd + ab; var zz = 1 - bb - cc; // z' row
 
 ```csharp
 // temp
-var tx = (c * z - d * y) * 2; // cross
-var ty = (d * x - b * z) * 2; // cross
-var tz = (b * y - c * x) * 2; // cross
+var tx = (c * z - d * y) * 2;
+var ty = (d * x - b * z) * 2;
+var tz = (b * y - c * x) * 2;
 // vector
 var _x = x + (c * tz - d * ty) + a * tx; // x'
 var _y = y + (d * tx - b * tz) + a * ty; // y'
@@ -64,43 +64,5 @@ var _y = y + (d * tx - b * tz) * 2; // y'
 var _z = z + (b * ty - c * tx) * 2; // z'
 // 18 multiplications
 // 12 additions/subtractions
-```
-
-##### TODO
-
-```csharp
-// temp
-var tx = x;
-var ty = y;
-var tz = z;
-tx = (c * tz - d * ty) * 2;
-ty = (d * tx - b * tz) * 2;
-tz = (b * ty - c * tx) * 2;
-tx = (c * tz - d * ty) + a * tx;
-ty = (d * tx - b * tz) + a * ty;
-tz = (b * ty - c * tx) + a * tz;
-// vector
-var _x = x + tx; // x'
-var _y = y + ty; // y'
-var _z = z + tz; // z'
-```
-
-TODO
-
-```csharp
-// temp
-var tx = x;
-var ty = y;
-var tz = z;
-tx = (c * tz - d * ty) + a * tx;
-ty = (d * tx - b * tz) + a * ty;
-tz = (b * ty - c * tx) + a * tz;
-tx = (c * tz - d * ty) * 2;
-ty = (d * tx - b * tz) * 2;
-tz = (b * ty - c * tx) * 2;
-// vector
-var _x = x + tx; // x'
-var _y = y + ty; // y'
-var _z = z + tz; // z'
 ```
 

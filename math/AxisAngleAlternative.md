@@ -31,9 +31,9 @@ see a more efficient version for Axis Angle [here](AxisAngle.md)
 ```csharp
 // temp
 var sin = Sin(angle); var cos = Cos(angle); var ver = 1 - cos;
-var tx = (c * z - d * y); // cross
-var ty = (d * x - b * z); // cross
-var tz = (b * y - c * x); // cross
+var tx = (c * z - d * y);
+var ty = (d * x - b * z);
+var tz = (b * y - c * x);
 // vector
 var _x = x + (c * tz - d * ty) * ver + tx * sin; // x'
 var _y = y + (d * tx - b * tz) * ver + ty * sin; // y'
@@ -58,45 +58,5 @@ var _z = z + (b * ty - c * tx); // z'
 // 18 multiplications
 // 13 additions/subtractions
 // 2 function calls
-```
-
-##### TODO
-
-```csharp
-// temp
-var sin = Sin(angle); var cos = Cos(angle); var ver = 1 - cos;
-var tx = x;
-var ty = y;
-var tz = z;
-tx = (c * tz - d * ty);
-ty = (d * tx - b * tz);
-tz = (b * ty - c * tx);
-tx = (c * tz - d * ty) * ver + tx * sin;
-ty = (d * tx - b * tz) * ver + ty * sin;
-tz = (b * ty - c * tx) * ver + tz * sin;
-// vector
-var _x = x + tx; // x'
-var _y = y + ty; // y'
-var _z = z + tz; // z'
-```
-
-TODO
-
-```csharp
-// temp
-var sin = Sin(angle); var cos = Cos(angle); var ver = 1 - cos;
-var tx = x;
-var ty = y;
-var tz = z;
-tx = (c * tz - d * ty) * ver + tx * sin;
-ty = (d * tx - b * tz) * ver + ty * sin;
-tz = (b * ty - c * tx) * ver + tz * sin;
-tx = (c * tz - d * ty);
-ty = (d * tx - b * tz);
-tz = (b * ty - c * tx);
-// vector
-var _x = x + tx; // x'
-var _y = y + ty; // y'
-var _z = z + tz; // z'
 ```
 
